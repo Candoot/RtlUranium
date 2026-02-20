@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net10.0-android</TargetFrameworks>
+		<TargetFrameworks Condition="!$([MSBuild]::IsOSPlatform('linux'))">$(TargetFrameworks);net10.0-ios;net10.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net10.0-windows10.0.19041.0</TargetFrameworks>
+
+    <UseMaui>true</UseMaui>
+    <SingleProject>true</SingleProject>
+    <RootNamespace>RtlUranium</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+
+    <!-- ─── NuGet Package Info ─── -->
+    <PackageId>RtlUranium</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Candoot</Authors>
+    <Company>Candoot</Company>
+    <Product>RtlUranium</Product>
+    <Description>RTL (Right-to-Left) support for UraniumUI Material Controls. Fixes Title animation, label alignment, and StrokeDashArray for Persian, Arabic, Hebrew, and Urdu languages.</Description>
+    <PackageTags>maui;uraniumui;rtl;persian;arabic;hebrew;urdu;material;input;textfield</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/candoot/RtlUranium</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/candoot/RtlUranium</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Title>RtlUranium - RTL Support for UraniumUI</Title>
+    <Copyright>Copyright © 2026 Candoot</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="icon.png" Pack="true" PackagePath="" Condition="Exists('icon.png')" />
+    <None Include="LICENSE" Pack="true" PackagePath="" Condition="Exists('LICENSE')" />
+    <None Include="README.md" Pack="true" PackagePath="" Condition="Exists('README.md')" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="UraniumUI.Material" Version="2.*" />
+    <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.41" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Platforms\Android\" />
+    <Folder Include="Platforms\iOS\" />
+    <Folder Include="Platforms\MacCatalyst\" />
+    <Folder Include="Platforms\Windows\" />
+  </ItemGroup>
+
+</Project>
+
