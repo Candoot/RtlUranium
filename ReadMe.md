@@ -91,7 +91,9 @@ MIT
 ```xml
 <!-- App.xaml - xmlns -->
 xmlns:rtl="clr-namespace:RtlUranium.Controls;assembly=RtlUranium"
+```
 
+```xml
 <!-- استایل‌ها -->
 <Style TargetType="rtl:RtlTextField">
     <Setter Property="TextColor"
