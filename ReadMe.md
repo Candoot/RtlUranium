@@ -94,7 +94,7 @@ xmlns:rtl="clr-namespace:RtlUranium.Controls;assembly=RtlUranium"
 ```
 
 ```xml
-<!-- استایل‌ها -->
+<!-- ‌Styles.xaml -->
 <Style TargetType="rtl:RtlTextField">
     <Setter Property="TextColor"
             Value="{AppThemeBinding Light={StaticResource PrimaryText},
