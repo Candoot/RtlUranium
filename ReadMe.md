@@ -7,22 +7,23 @@ Fixes Title animation, label alignment, border stroke gap, and icon positioning 
 ## Installation
 ```bash
 dotnet add package RtlUranium
-
+```
 Or via NuGet Package Manager:
 
-
+```bash
 Install-Package RtlUranium
+```
 
 ## Usage
 
 ### XAML Namespace
 
-xml
+```xml
 xmlns:rtl="clr-namespace:RtlUranium.Controls;assembly=RtlUranium"
-
+```
 ### Basic Usage
 
-xml
+```xml
 <rtl:RtlTextField Title="شماره موبایل"
 Keyboard="Numeric"
 FlowDirection="RightToLeft"
@@ -32,23 +33,26 @@ Text="{Binding PhoneNumber}" />
 IsPassword="True"
 FlowDirection="RightToLeft"
 Text="{Binding Password}" />
+```
 
 ### Force RTL Mode
 
-xml
+```xml
 <rtl:RtlTextField Title="نام کاربری"
 ForceRtl="True"
 Text="{Binding Username}" />
+```
 
 ### With Validation
 
-xml
+```xml
 <rtl:RtlTextField Title="ایمیل"
 FlowDirection="RightToLeft"
 Text="{Binding Email}">
 <validation:RequiredValidation />
 <validation:RegexValidation Pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" />
 </rtl:RtlTextField>
+```
 
 ## What's Fixed?
 
@@ -71,7 +75,7 @@ Text="{Binding Email}">
 
 ## Requirements
 
-- .NET 8.0+
+- .NET 10.0
 - .NET MAUI
 - UraniumUI.Material 2.x
 
@@ -110,3 +114,4 @@ xmlns:rtl="clr-namespace:RtlUranium.Controls;assembly=RtlUranium"
                                     Dark={StaticResource PrimaryDark}}" />
     <Setter Property="AllowClear" Value="True"/>
 </Style>
+```
